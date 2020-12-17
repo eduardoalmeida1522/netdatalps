@@ -1,0 +1,52 @@
+# NO ARQUIVO DE CONFIGURACAO netdata.conf
+# originalmente:
+[global]
+    memory mode = none
+[web]
+    mode = none
+
+#alterado para:
+[global]
+    memory mode = dbengine
+[web]
+    mode = static-threaded
+
+
+# NO ARQUIVO DE CONFIGURACAO stream.conf
+# originalmente:
+#2. ON MASTER NETDATA - THE ONE THAT WILL BE RECEIVING METRICS
+#[API_KEY] is [YOUR-API-KEY], i.e [11111111-2222-3333-4444-555555555555]
+[my-api-key]
+    enabled = no
+    allow from = *
+    default history = 86400
+    default memory mode = none
+    health enabled by default = auto
+    default postpone alarms on connect seconds = 60
+    multiple connections = allow
+    
+#GUID
+[MACHINE_GUID]
+    # enable this host: yes | no
+    # When disabled, the master will not receive metrics for this host.
+    enabled = no
+    
+#alterado para:
+[34319e67-1852-46ba-bd8c-6cf6ce6f2c0e]
+    enabled = yes
+    allow from = *
+    default history = 86400
+    default memory mode = none
+    health enabled by default = auto
+    default postpone alarms on connect seconds = 60
+    multiple connections = allow  
+    
+#GUID    
+  [valor numerico MGUID do no coletor ]
+    enabled = yes
+    history = 3600
+    memory mode = save
+    health enabled = yes
+    allow from = *
+    
+    

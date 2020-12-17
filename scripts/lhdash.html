@@ -1,0 +1,17 @@
+# Alteracao para o localhost como parametro objeto Dash
+    var dash = new Dash('http://A.B.C.D:19999');
+
+    var picknsort = new PickNSort(true);
+
+    # Importar dashboard.js
+    $.getScript(dash.base_url + '/dashboard.js', function() {
+        console.log("Loaded dashboard.js");
+        setTimeout(function () {
+            $('#alarms').css("visibility", "visible");
+        }, 400);
+    });
+
+    setInterval(function () {
+        dash.digest();
+    }, 6 * 1000);
+

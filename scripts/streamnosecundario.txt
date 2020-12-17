@@ -1,0 +1,68 @@
+# NO ARQUIVO DE CONFIGURACAO netdata.conf
+# originalmente:
+[global]
+    memory mode = none
+[web]
+    mode = none
+
+# alterado para:
+[global]
+    memory mode = save
+[web]
+    mode = static-threaded
+
+# NO ARQUIVO DE CONFIGURACAO stream.conf
+# originalmente:
+#1. ON SLAVE NETDATA - THE ONE THAT WILL BE SENDING METRIC
+   [stream]
+    # Enable this on slaves, to have them send metrics.
+    enabled = no
+    
+    # Where is the receiving netdata?
+    # A space separated list of:
+    #
+    #      [PROTOCOL:]HOST[%INTERFACE][:PORT][:SSL]
+    #
+    # If many are given, the first available will get the metrics.
+    #
+    # PROTOCOL  = tcp, udp, or unix (only tcp and unix are supported by masters)
+    # HOST      = an IPv4, IPv6 IP, or a hostname, or a unix domain socket path.
+    #             IPv6 IPs should be given with brackets [ip:address]
+    # INTERFACE = the network interface to use (only for IPv6)
+    # PORT      = the port number or service name (/etc/services)
+    # SSL       = when this word appear at the end of the destination string
+    #             the Netdata will do encrypt connection with the master.
+    #
+    # This communication is not HTTP (it cannot be proxied by web proxies).
+    destination = 
+
+
+    # The API_KEY to use (as the sender)
+    api key = 
+  
+    
+#alterado para:
+
+    [stream]
+    # Enable this on slaves, to have them send metrics.
+    enabled = yes
+    
+    # Where is the receiving netdata?
+    # A space separated list of:
+    #
+    #      [PROTOCOL:]HOST[%INTERFACE][:PORT][:SSL]
+    #
+    # If many are given, the first available will get the metrics.
+    #
+    # PROTOCOL  = tcp, udp, or unix (only tcp and unix are supported by masters)
+     HOST      = A.B.C.D
+    # INTERFACE = the network interface to use (only for IPv6)
+     PORT      = 19999
+    # SSL       = when this word appear at the end of the destination string
+    #             the Netdata will do encrypt connection with the master.
+    #
+    # This communication is not HTTP (it cannot be proxied by web proxies).
+    destination = A.B.C.D:19999
+    
+    # The API_KEY to use (as the sender)
+    api key = 34319e67-1852-46ba-bd8c-6cf6ce6f2c0e
